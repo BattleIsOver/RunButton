@@ -2,7 +2,7 @@
 	"name": "runbutton",
 	"displayName": "RunButton",
 	"description": "Adds a run button for javascript files (using nodejs)",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "publisher": "AlessandroMulas",
 	"engines": {
 		"vscode": "^1.42.0"
@@ -11,7 +11,8 @@
 		"Other"
   ],
 	"activationEvents": [
-		"onCommand:extension.runNodeApp"
+    "onCommand:extension.runNodeApp",
+    "onCommand:extension.runNpmStart"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -20,6 +21,11 @@
         {
           "when": "resourceLangId == javascript",
           "command": "extension.runNodeApp",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceLangId == javascript",
+          "command": "extension.runNpmStart",
           "group": "navigation"
         }
       ]
@@ -32,7 +38,16 @@
           "light": "buttons//run_green_cut.png",
           "dark": "buttons//run_green_cut.png"
         },
-        "group": "3_open"
+        "group": "navigation"
+      },
+      {
+				"command": "extension.runNpmStart",
+        "title": "Run npm start",
+        "icon":{
+          "light": "buttons//run_blue_cut.png",
+          "dark": "buttons//run_blue_cut.png"
+        },
+        "group": "navigation"
 			}
 		]
 	},
@@ -56,5 +71,6 @@
 		"mocha": "^7.0.1",
 		"typescript": "^3.7.5",
 		"vscode-test": "^1.3.0"
-	}
+  },
+  "repository": "https://github.com/BattleIsOver/RunButton"
 }
